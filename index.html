@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Heritage Blog</title>
+    <!-- Add your CSS link here -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>World Heritage Blog</h1>
+        <button id="add-blog-button" onclick="openModal()">+</button>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page Content -->
+        <section id="home-page">
+            <!-- List of existing blog posts with titles and summaries -->
+            <div class="blog-cards">
+                <div class="blog-card">
+                    <!-- <img src="./assets/allora.jpeg" alt="Blog Image 1">
+                    <h2>Blog Post Title 1</h2>
+                    <p>Blog Post summary.....</p>
+                    <button onclick="viewBlogPost(0)">Read More</button> -->
+                </div>
+                <!-- Add more blog cards here -->
+            </div>
+        </section>
+
+        <!-- Blog Page Content -->
+        <section id="blog-page">
+            <!-- Display full content of selected blog post here -->
+        </section>
+    </main>
+
+    <!-- Add Blog Modal -->
+    <div id="add-blog-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add New Blog</h2>
+            <form id="add-blog-form">
+                <label for="blog-title">Title:</label>
+                <input type="text" id="blog-title" required>
+    
+                <label for="blog-poster">Poster (Image URL):</label>
+                <input type="url" id="blog-poster" required>
+    
+                <label for="blog-description">Description:</label>
+                <textarea id="blog-description" required></textarea>
+    
+                <label for="blog-content">Content:</label>
+                <textarea id="blog-content" required></textarea>
+    
+                <button type="submit">Add Blog</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>
