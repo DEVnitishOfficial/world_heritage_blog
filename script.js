@@ -27,7 +27,7 @@ function displayBlogPosts() {
         summary.textContent = post.description;
         
         const Button = document.createElement("button")
-        Button.textContent = "read more"
+        Button.textContent = "Read more"
 
         blogCard.appendChild(title);
         blogCard.appendChild(summary);
@@ -59,11 +59,15 @@ function viewBlogPost(post) {
     const title = document.createElement("h2");
     title.textContent = post.title;
 
+    const imgElement = document.createElement("img")
+    imgElement.src = post.poster
+
     const content = document.createElement("p");
     content.textContent = post.content;
 
     blogPage.appendChild(title);
     blogPage.appendChild(content);
+    blogPage.appendChild(imgElement);
 }
 
 // Function to go back to the home page
