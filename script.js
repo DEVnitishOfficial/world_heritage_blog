@@ -6,16 +6,14 @@ function displayBlogPosts() {
     // Clear any existing content
     homePage.innerHTML = "";
 
-     // Retrieve existing blog posts from LocalStorage (if any)
+     // Retrieve existing blog posts from LocalStorage
      const existingBlogPosts = JSON.parse(localStorage.getItem("blogPosts")) || [];
      
-    for (const post of existingBlogPosts) {
-        const blogPost = document.createElement("div"); // parent div
-        blogPost.classList.add("blog-cards");
+     for (let i = 0; i < existingBlogPosts.length; i++) {
+        const post = existingBlogPosts[i];
 
-        const blogCard = document.createElement("div") // child div
+        const blogCard = document.createElement("div") 
         blogCard.classList.add("blog-card")
-        blogPost.appendChild(blogCard)
 
         const imgElement = document.createElement("img")
         imgElement.src = post.poster
@@ -29,15 +27,20 @@ function displayBlogPosts() {
         const Button = document.createElement("button")
         Button.textContent = "Read more"
 
+        Button.addEventListener("click", () => {
+            const blogPostURL = `blog-post.html?index=${i}`;
+            window.location.href = blogPostURL;
+        })
+
+        blogCard.appendChild(imgElement);
         blogCard.appendChild(title);
         blogCard.appendChild(summary);
-        blogCard.appendChild(imgElement);
-        blogCard.appendChild(Button)
+        blogCard.appendChild(Button); 
 
         // Add a click event listener to view the full blog post 
         Button.addEventListener("click", () => viewBlogPost(post));
 
-        homePage.appendChild(blogPost);
+        homePage.appendChild(blogCard);
     }
 }
 
@@ -45,39 +48,6 @@ function displayBlogPosts() {
 displayBlogPosts();
 
 
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-function viewBlogPost(post) {
-    const blogPage = document.getElementById("blog-page");
-
-    // Clear any existing content
-    blogPage.innerHTML = "";
-
-    // Create elements to display the full content
-    const title = document.createElement("h2");
-    title.textContent = post.title;
-
-    const imgElement = document.createElement("img")
-    imgElement.src = post.poster
-
-    const content = document.createElement("p");
-    content.textContent = post.content;
-
-    blogPage.appendChild(title);
-    blogPage.appendChild(content);
-    blogPage.appendChild(imgElement);
-}
-
-// Function to go back to the home page
-function goBackToHomePage() {
-    // Re-display existing blog posts on the home page
-    displayBlogPosts();
-}
-
-// Call the function to initially display blog posts on the home page (from Step 3)
-displayBlogPosts();
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

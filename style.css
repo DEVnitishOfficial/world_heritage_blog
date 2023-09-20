@@ -119,12 +119,16 @@ button:hover {
 }
 
 .blog-card {
-    width: calc(33.33%-30px);
-    margin-bottom: 20px;
+    width: calc(33.33% - 20px); 
+    margin: 0 10px 20px 0;
     padding: 15px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .blog-card > img {
@@ -132,6 +136,7 @@ button:hover {
     height: auto;
     border-radius: 5px;
 }
+
 
 .blog-card h2 {
     font-size: 18px;
