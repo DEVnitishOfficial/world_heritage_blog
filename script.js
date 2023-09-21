@@ -37,9 +37,6 @@ function displayBlogPosts() {
         blogCard.appendChild(summary);
         blogCard.appendChild(Button); 
 
-        // Add a click event listener to view the full blog post 
-        Button.addEventListener("click", () => viewBlogPost(post));
-
         homePage.appendChild(blogCard);
     }
 }
